@@ -1,5 +1,5 @@
-// Real NEW LIFE CARE centre photographs. Photos of people need documented consent before adding.
-// Files live in public/images as centreN.webp/.avif (+ -sm variants); captions in i18n gallery.photos.
+// Real New Life Care Rehab centre photographs from the live site assets.
+// Files live in public/images as centreN.webp/.avif (+ -sm variants).
 export const GALLERY = [
   { id: 'centre1', image: 'centre1', illustrative: false, titleKey: 'gallery.photos.centre1.title', altKey: 'gallery.photos.centre1.alt' },
   { id: 'centre2', image: 'centre2', illustrative: false, titleKey: 'gallery.photos.centre2.title', altKey: 'gallery.photos.centre2.alt' },

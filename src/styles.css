@@ -8,29 +8,29 @@
 
 :root {
 
-  --navy-900: #0a1f45;
+  --navy-900: #0e1f36;
 
-  --navy: #0d2b5e;
+  --navy: #142b4a;
 
-  --navy-600: #173f85;
+  --navy-600: #1e3e66;
 
-  --navy-500: #24529e;
+  --navy-500: #2a4f7f;
 
-  --gold: #1b8a3c;
+  --gold: #c9a45c;
 
-  --gold-dark: #167233;          /* gold for TEXT on light backgrounds (AA contrast) */
+  --gold-dark: #7d5f1e;          /* gold for TEXT on light backgrounds (AA contrast) */
 
-  --gold-soft: #e3f4e8;
+  --gold-soft: #f6edd8;
 
-  --mist: #dcedfb;
+  --mist: #eaf0f6;
 
-  --mist-2: #eef7fd;
+  --mist-2: #f5f8fb;
 
-  --line: #cfe0ef;
+  --line: #d8e0ea;
 
-  --ink: #0d2b5e;
+  --ink: #142b4a;
 
-  --muted: #46597a;
+  --muted: #4a5b70;
 
   --white: #fff;
 
@@ -48,9 +48,9 @@
 
   --radius-sm: 10px;
 
-  --shadow-sm: 0 1px 2px rgb(13 43 94 / 6%), 0 4px 14px rgb(13 43 94 / 6%);
+  --shadow-sm: 0 1px 2px rgb(20 43 74 / 6%), 0 4px 14px rgb(20 43 74 / 6%);
 
-  --shadow-md: 0 2px 4px rgb(13 43 94 / 6%), 0 12px 30px rgb(13 43 94 / 10%);
+  --shadow-md: 0 2px 4px rgb(20 43 74 / 6%), 0 12px 30px rgb(20 43 74 / 10%);
 
 
 
@@ -66,9 +66,9 @@
 
 
 
-  --font-body: 'Poppins', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-body: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
-  --font-head: 'Poppins', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-head: Georgia, 'Times New Roman', serif;
 
 }
 
@@ -100,7 +100,7 @@ img, picture, video, iframe { max-width: 100%; }
 
 img, video { height: auto; display: block; }
 
-h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1.2; margin: 0 0 .6rem; letter-spacing: -.01em; color: var(--navy); }
+h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.2; margin: 0 0 .6rem; letter-spacing: -.01em; color: var(--navy); }
 
 h1 { font-size: clamp(2rem, 1.3rem + 2.8vw, 3.4rem); }
 
@@ -142,7 +142,7 @@ html[data-lang='ta'] .eyebrow { letter-spacing: .02em; text-transform: none; }
 
 html[data-lang='ta'] .site-header .brand__name,
 
-html[data-lang='ta'] .site-footer .brand__name { font-family: 'Poppins', sans-serif !important; letter-spacing: -.01em; line-height: 1.05; font-weight: 800; }
+html[data-lang='ta'] .site-footer .brand__name { font-family: Georgia, 'Times New Roman', serif !important; letter-spacing: .06em; line-height: 1.2; font-weight: 700; }
 
 /* Tamil navigation uses a Tamil-capable sans font without changing the wordmark. */
 
@@ -190,9 +190,9 @@ main:focus { outline: none; }
 
 .btn-primary:hover { background: var(--navy-600); box-shadow: var(--shadow-md); }
 
-.btn-gold { background: var(--gold); color: #fff; }
+.btn-gold { background: var(--gold); color: var(--navy-900); }
 
-.btn-gold:hover { background: #167233; box-shadow: var(--shadow-md); }
+.btn-gold:hover { background: #d6b373; box-shadow: var(--shadow-md); }
 
 .btn-outline { background: transparent; color: var(--navy); border-color: var(--navy); }
 
@@ -212,7 +212,7 @@ main:focus { outline: none; }
 
 /* ---------- Header (fixed) ---------- */
 
-.site-header { position: fixed; inset: 0 0 auto 0; z-index: 100; background: #dcedfb; box-shadow: 0 1px 0 var(--line), 0 6px 20px rgb(13 43 94 / 6%); }
+.site-header { position: fixed; inset: 0 0 auto 0; z-index: 100; background: #fff; box-shadow: 0 1px 0 var(--line), 0 6px 20px rgb(20 43 74 / 6%); }
 
 .site-header .container { width: min(max(var(--container), 82rem), calc(100% - 2 * var(--gutter))); }
 
@@ -232,11 +232,9 @@ main:focus { outline: none; }
 
 .brand { display: inline-flex; align-items: center; gap: .65rem; text-decoration: none; flex-shrink: 0; }
 
-.brand img { height: 3.4rem; width: auto; object-fit: contain; }
-.brand__text { display: grid; gap: .22rem; justify-items: start; }
-.brand__tag { display: inline-block; background: #1b8a3c; color: #fff; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: .7rem; letter-spacing: .01em; line-height: 1; padding: .3rem .7rem; border-radius: 999px; white-space: nowrap; }
+.brand img { width: 2.75rem; height: 2.75rem; border-radius: 50%; object-fit: cover; }
 
-.brand__name { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 2.15rem; line-height: 1.05; letter-spacing: -.01em; color: var(--navy); white-space: nowrap; font-language-override: normal; }
+.brand__name { font-family: Georgia, 'Times New Roman', serif; font-weight: 700; font-size: 1.25rem; letter-spacing: .06em; color: var(--navy); white-space: nowrap; font-language-override: normal; }
 
 .brand--light .brand__name { color: #fff; }
 
@@ -328,17 +326,17 @@ main:focus { outline: none; }
 
   :root { --nav-h: 4rem; }
 
-  .brand__name { font-size: 1.3rem; letter-spacing: -.01em; }
+  .brand__name { font-size: 1.05rem; letter-spacing: .04em; }
 
-  .brand img { height: 2.5rem; width: auto; }
+  .brand img { width: 2.4rem; height: 2.4rem; }
 
   .lang-switch button { padding: .25rem .6rem; }
 
 }
 
-@media (max-width: 380px) { .brand__name { font-size: 1.15rem; letter-spacing: -.01em; } .brand { gap: .4rem; } }
+@media (max-width: 380px) { .brand__name { font-size: .95rem; letter-spacing: .02em; } .brand { gap: .4rem; } }
 
-@media (min-width: 1240px) and (max-width: 1360px) { .nav-link { padding-inline: .55rem; font-size: .9rem; } .brand__name { font-size: 1.7rem; } }
+@media (min-width: 1240px) and (max-width: 1360px) { .nav-link { padding-inline: .55rem; font-size: .9rem; } .brand__name { font-size: 1.15rem; } }
 
 /* Tamil desktop header: use the existing navigation drawer at medium widths */
 @media (min-width: 1240px) and (max-width: 1439px) {
@@ -352,11 +350,11 @@ main:focus { outline: none; }
   }
 
   html[data-lang='ta'] .brand__name {
-    font-family: 'Poppins', sans-serif !important;
-    font-size: 2.15rem;
-    font-weight: 800;
-    letter-spacing: -.01em;
-    line-height: 1.05;
+    font-family: Georgia, 'Times New Roman', serif !important;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    line-height: 1.2;
     white-space: nowrap;
   }
 
@@ -502,7 +500,7 @@ main:focus { outline: none; }
 
 .page-hero { background: var(--navy); color: #fff; padding-block: clamp(2rem, 5vw, 4rem); position: relative; overflow: hidden; }
 
-.page-hero::after { content: ''; position: absolute; right: -8%; top: -40%; width: 40rem; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(closest-side, rgb(255 196 40 / 26%), transparent); pointer-events: none; }
+.page-hero::after { content: ''; position: absolute; right: -8%; top: -40%; width: 40rem; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(closest-side, rgb(201 164 92 / 22%), transparent); pointer-events: none; }
 
 .page-hero h1 { color: #fff; }
 
@@ -574,7 +572,7 @@ main:focus { outline: none; }
 
 .tag { display: inline-block; align-self: flex-start; background: var(--mist); color: var(--navy); font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: .2rem .6rem; border-radius: 999px; margin-bottom: .8rem; }
 
-.badge { position: absolute; top: .75rem; left: .75rem; background: rgb(13 43 94 / 88%); color: #fff; font-size: .72rem; font-weight: 600; padding: .25rem .65rem; border-radius: 999px; }
+.badge { position: absolute; top: .75rem; left: .75rem; background: rgb(20 43 74 / 88%); color: #fff; font-size: .72rem; font-weight: 600; padding: .25rem .65rem; border-radius: 999px; }
 
 .badge--static { position: static; display: inline-flex; align-items: center; gap: .35rem; background: var(--navy); }
 
@@ -852,8 +850,3 @@ html[data-lang='ta'] .footer-title { font-family: inherit; text-transform: none;
   justify-content: center;
   border-radius: 50%;
 }
-/* ---------- Brand theme update: header CTA + hero look ---------- */
-.site-header .btn-gold { background: var(--navy); color: #fff; border-radius: 999px; box-shadow: 0 6px 18px rgb(13 43 94 / 28%); }
-.site-header .btn-gold:hover { background: var(--navy-600); }
-.btn { border-radius: 999px; }
-.site-footer .brand__tag { background: #1b8a3c; }

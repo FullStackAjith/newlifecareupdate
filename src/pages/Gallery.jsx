@@ -31,7 +31,7 @@ export default function Gallery() {
           {GALLERY.map((item) => (
             <li key={item.id}>
               <button type="button" className="gallery-item" onClick={() => open(item)} aria-label={t('gallery.open', { title: t(item.titleKey) })}>
-                <Picture name={item.image} alt={t(item.altKey)} width={1000} height={457} full={1000} sizes="(min-width: 900px) 33vw, (min-width: 560px) 50vw, 100vw" />
+                <Picture name={item.image} alt={t(item.altKey)} sizes="(min-width: 900px) 33vw, (min-width: 560px) 50vw, 100vw" />
                 <span className="gallery-item__cap">{t(item.titleKey)}</span>
                 {item.illustrative && <span className="badge">{t('common.illustrative')}</span>}
               </button>
@@ -68,7 +68,7 @@ export default function Gallery() {
       <dialog ref={dialogRef} className="lightbox" onClose={() => setActive(null)} onClick={(e) => { if (e.target === dialogRef.current) close(); }} aria-label={active ? t(active.titleKey) : undefined}>
         {active && (
           <figure>
-            <Picture name={active.image} alt={t(active.altKey)} width={1000} height={457} full={1000} sizes="90vw" priority />
+            <Picture name={active.image} alt={t(active.altKey)} sizes="90vw" priority />
             <figcaption>{t(active.titleKey)} {active.illustrative && <span>· {t('common.illustrative')}</span>}</figcaption>
           </figure>
         )}

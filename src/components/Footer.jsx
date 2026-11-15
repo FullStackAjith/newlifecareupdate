@@ -21,8 +21,8 @@ export default function Footer() {
       <div className="container footer-grid">
         <div className="footer-brand">
           <Link to="/" className="brand brand--light" aria-label={t('brand.homeAria')}>
-            <img src="/logo-160.webp" width="93" height="96" alt="" loading="lazy" decoding="async" />
-            <span className="brand__text"><span className="brand__name">New Life Care</span><span className="brand__tag">De-addiction &amp; Rehabilitation Centre</span></span>
+            <img src="/logo-160.webp" width="44" height="44" alt="" loading="lazy" decoding="async" />
+            <span className="brand__name">NEW LIFE CARE</span>
           </Link>
           <p className="footer-tagline">{t('brand.tagline')}</p>
           <p>{t('footer.about')}</p>

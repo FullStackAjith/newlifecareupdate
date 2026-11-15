@@ -31,10 +31,6 @@ export default function Home() {
             <span className="eyebrow">{t('home.hero.eyebrow')}</span>
             <h1>{t('home.hero.title1')} <em>{t('home.hero.title2')}</em></h1>
             <p className="lead">{t('home.hero.lead')}</p>
-            <div className="hero__treats" aria-label={t('home.hero.treatLabel')}>
-              <strong>{t('home.hero.treatLabel')}</strong>
-              {t('home.hero.chips').map((c) => <span className="chip" key={c}>{c}</span>)}
-            </div>
             <div className="btn-row">
               <Link className="btn btn-primary" to={CONFIDENTIAL_PATH}>{t('home.hero.support')} <Icon name="arrow" size={18} /></Link>
               <Link className="btn btn-outline" to="/family-support">{t('home.hero.helping')}</Link>
@@ -46,7 +42,7 @@ export default function Home() {
           </div>
           <div className="hero__visual">
             <div className="hero__image">
-              <Picture name="hero" alt={t('home.hero.imgAlt')} width={1000} height={675} full={1000} priority sizes="(min-width: 900px) 46vw, 100vw" />
+              <Picture name="hero" alt={t('home.hero.imgAlt')} width={1000} height={750} full={1000} priority sizes="(min-width: 900px) 46vw, 100vw" />
             </div>
             <div className="hero__card">
               <strong>{t('home.hero.cardTitle')}</strong>
@@ -68,11 +64,6 @@ export default function Home() {
       </div>
 
       <Section>
-        <SectionHead eyebrow={t('home.addictions.eyebrow')} title={t('home.addictions.title')} lead={t('home.addictions.lead')} />
-        <ServiceGrid withLinks={false} group="addiction" cols={4} />
-      </Section>
-
-      <Section tone="mist">
         <div className="split">
           <div className="split__media">
             <Picture name="garden" alt={t('home.about.imgAlt')} />
@@ -105,7 +96,7 @@ export default function Home() {
         <SectionHead eyebrow={t('home.services.eyebrow')} title={t('home.services.title')} lead={t('home.services.lead')}>
           <Link className="btn btn-outline" to="/services">{t('home.services.cta')} <Icon name="arrow" size={18} /></Link>
         </SectionHead>
-        <ServiceGrid withLinks={false} group="care" />
+        <ServiceGrid withLinks={false} />
       </Section>
 
       <Section tone="mist">

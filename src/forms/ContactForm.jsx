@@ -8,13 +8,13 @@ import { CONFIDENTIAL_PATH } from '../data/navigation.js';
 import useEnquiryForm from './useEnquiryForm.js';
 
 const INITIAL = { name: '', phone: '', service: '', callback: '', consent: false, website: '' };
-const TOPICS = ['Alcohol addiction support', 'Drug addiction support', 'Tobacco support', 'Mobile addiction support', 'Online gaming addiction support', 'Gambling addiction support', 'Pornographic addiction support', 'Pill and medicine addiction support', 'Counselling', 'Family counselling', 'Rehabilitation', 'Aftercare support', 'Appointment or consultation', 'Admission and fees', 'Other enquiry'];
+const TOPICS = ['Alcohol addiction support', 'Drug addiction support', 'Tobacco support', 'Counselling', 'Family counselling', 'Rehabilitation', 'Aftercare support', 'Admission and fees', 'Other enquiry'];
 const CALLBACKS = ['', 'morning', 'afternoon', 'evening'];
 
 const validate = (v) => ({
   name: rules.name(v.name),
   phone: rules.phone(v.phone),
-  service: rules.select(v.service),
+  // service optional per Contact PDF
   consent: rules.consent(v.consent),
 });
 
@@ -65,7 +65,7 @@ export default function ContactForm() {
         </Field>
         <Field label={t('contact.form.topic.label')} error={err('service')} className="field--wide">
           {(p) => (
-            <select {...p} name="service" required value={values.service} onChange={(e) => f.setField('service', e.target.value)}>
+            <select {...p} name="service" value={values.service} onChange={(e) => f.setField('service', e.target.value)}>
               <option value="">{t('contact.form.topic.placeholder')}</option>
               {TOPICS.map((k) => <option key={k} value={k}>{t(`contact.form.topic.options.${k}`)}</option>)}
             </select>

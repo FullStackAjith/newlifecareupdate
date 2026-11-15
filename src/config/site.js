@@ -2,7 +2,7 @@
 // Phone, WhatsApp, email and address are preserved from the original website.
 
 export const SITE = {
-  name: 'NEW LIFE CARE',
+  name: 'New Life Care Rehab',
   phones: [
     { display: '+91 89256 20885', tel: '+918925620885' },
     { display: '+91 89256 20886', tel: '+918925620886' },
@@ -16,6 +16,8 @@ export const SITE = {
     'Tamil Nadu, India',
   ],
   mapQuery: 'No. 3/3, Bajanai Kovil Street, Udayampalayam, Coimbatore 641049, Tamil Nadu, India',
+  // Google Maps link provided by the centre (Contact Us PDF).
+  mapLink: 'https://maps.google.com/maps?udm&fvr=1&pvq=Cg0vZy8xMXp4eTc5ZDRfIhIKDG5ld2xpZmUgY2FyZRACGAOJAQqdr8xah22O&lqi=ChduZXdsaWZlIGNhcmUgY29pbWJhdG9yZUif4dLT876AgAhaIxAAEAEYABgBGAIiF25ld2xpZmUgY2FyZSBjb2ltYmF0b3JlkgEIaG9zcGl0YWw&vet=10CAAQoqAOahcKEwiYg4WB5oeYAxUAAAAAHQAAAAAQCw..i&cs=0&um=1&ie=UTF-8&fb=1&gl=in&sa=X&ftid=0x3ba8590041b290bb:0x8e6d875accaf9d0a',
   // National emergency number in India.
   emergencyNumber: '112',
   /**
@@ -39,5 +41,4 @@ export const mailUrl = () => `mailto:${SITE.email}`;
 
 export const mapEmbedUrl = () =>
   `https://www.google.com/maps?q=${encodeURIComponent(SITE.mapQuery)}&output=embed`;
-export const mapLinkUrl = () =>
-  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(SITE.mapQuery)}`;
+export const mapLinkUrl = () => SITE.mapLink || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(SITE.mapQuery)}`;

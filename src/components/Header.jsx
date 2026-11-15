@@ -57,9 +57,9 @@ export default function Header() {
           <Link to="/" className="brand" aria-label={t('brand.homeAria')}>
             <picture>
               <source type="image/avif" srcSet="/logo-320.avif" />
-              <img src="/logo-160.webp" srcSet="/logo-160.webp 1x, /logo-320.webp 2x" width="93" height="96" alt="" decoding="async" fetchPriority="high" />
+              <img src="/logo-160.webp" srcSet="/logo-160.webp 1x, /logo-320.webp 2x" width="44" height="44" alt="" decoding="async" fetchPriority="high" />
             </picture>
-            <span className="brand__text"><span className="brand__name">New Life Care</span><span className="brand__tag">De-addiction &amp; Rehabilitation Centre</span></span>
+            <span className="brand__name">NEW LIFE CARE</span>
           </Link>
 
           <nav id="primary-nav" ref={navRef} className={`primary-nav${menuOpen ? ' is-open' : ''}`} aria-label={t('nav.label')}>
