@@ -66,11 +66,11 @@ export async function postEnquiry(payload) {
   return { ok: true, via: 'whatsapp', reference: `WA-${Date.now().toString(36).toUpperCase()}` };
 }
 
-export async function postChat(message, language) {
+export async function postChat(message, language, history = []) {
   const response = await fetch(`${API_BASE}/chat`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ message, language }),
+    body: JSON.stringify({ message, language, history }),
   });
   const data = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(data.error || 'Chat service not configured');

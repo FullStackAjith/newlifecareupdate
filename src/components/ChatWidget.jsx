@@ -29,15 +29,22 @@ export default function ChatWidget() {
   const ask = async (question) => {
     const q = question.trim();
     if (!q) return;
+    // Send the last few real exchanges so follow-up questions make sense (skip placeholders and canned fallbacks).
+    const history = messages
+      .filter((m) => !m.pending && !m.canned)
+      .slice(-6)
+      .map((m) => ({ role: m.who === 'user' ? 'user' : 'assistant', content: m.text }));
     const pendingId = nextId++;
-    setMessages((m) => [...m, { id: nextId++, who: 'user', text: q }, { id: pendingId, who: 'bot', text: t('chat.thinking') }]);
+    setMessages((m) => [...m, { id: nextId++, who: 'user', text: q }, { id: pendingId, who: 'bot', text: t('chat.thinking'), pending: true }]);
     let reply;
+    let canned = false;
     try {
-      reply = await postChat(q, lang);
+      reply = await postChat(q, lang, history);
     } catch {
       reply = `${prepared(q)} ${t('chat.demo')}`;
+      canned = true;
     }
-    setMessages((m) => m.map((x) => (x.id === pendingId ? { ...x, text: reply } : x)));
+    setMessages((m) => m.map((x) => (x.id === pendingId ? { ...x, text: reply, pending: false, canned } : x)));
   };
 
   const submit = (e) => {

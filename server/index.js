@@ -7,6 +7,7 @@ import OpenAI from 'openai';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import fs from 'node:fs';
+import { centreFacts } from './centre-facts.js';
 
 const app = express();
 const PORT = Number(process.env.PORT || 3000);
@@ -118,10 +119,12 @@ app.post('/api/enquiries', async (req, res) => {
   }
 });
 
-const centreFacts = `You are the New Life Care website information assistant in Coimbatore, Tamil Nadu. You may share only these verified site facts: phone +91 89256 20885, +91 89256 20886, +91 89256 20887; WhatsApp +91 89256 20885; email newlifecarecbe@gmail.com; address No. 3/3, Bajanai Kovil Street, Udayampalayam, Coimbatore 641049, Tamil Nadu. Listed topics are alcohol support, drug support, tobacco support, mobile addiction support, online gaming addiction support, gambling addiction support, pornographic addiction support, pill and medicine addiction support, counselling, family counselling, rehabilitation and aftercare support. Fees, staff credentials, opening hours, admission requirements and programme details are not confirmed in the site data; direct users to contact the centre. Reply in the requested language (Tamil or English). Keep replies brief, empathetic and non-judgemental. Never diagnose, recommend treatment/medication, assess risk, promise outcomes or give emergency treatment advice. Do not ask for detailed health information. For immediate danger or a medical emergency, tell the user to contact local emergency services or go to the nearest emergency department. If the question is outside general centre information, recommend speaking with a qualified professional or the centre team.`;
 app.post('/api/chat', async (req, res) => {
   const message = clean(req.body?.message, 1200);
   const language = req.body?.language === 'ta' ? 'Tamil' : 'English';
+  const history = (Array.isArray(req.body?.history) ? req.body.history : []).slice(-6)
+    .filter((h) => (h?.role === 'user' || h?.role === 'assistant') && typeof h.content === 'string')
+    .map((h) => ({ role: h.role, content: clean(h.content, 600) }));
   if (message.length < 1) return res.status(400).json({ error: 'Please enter a question.' });
   if (!process.env.OPENAI_API_KEY) return res.status(503).json({ error: 'AI chat has not been configured.' });
   try {
@@ -132,6 +135,7 @@ app.post('/api/chat', async (req, res) => {
       max_tokens: 260,
       messages: [
         { role: 'system', content: `${centreFacts}\nRespond in ${language}.` },
+        ...history,
         { role: 'user', content: message },
       ],
     });
